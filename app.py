@@ -65,6 +65,7 @@ def UploadFile():
   from boto.s3.key import Key
   import ntpath
   from werkzeug import secure_filename
+  import time
 
 
   aws_key = 'AKIAJ2ML5NXDHZS3WCEA'
@@ -78,9 +79,16 @@ def UploadFile():
       key = bucket.new_key(filename)
       key.set_contents_from_file(file, headers=None, replace=True, cb=None, num_cb=10, policy=None, md5=None)
 
+      time.sleep(2)
+
       key.make_public()
 
+      time.sleep(2)
+
+
       url = key.generate_url(expires_in=0, query_auth=False)
+
+      
       return url
 
 
