@@ -79,7 +79,7 @@ def UploadFile():
       key = bucket.new_key(filename)
       key.set_contents_from_file(file, headers=None, replace=True, cb=None, num_cb=10, policy=None, md5=None)
 
-      time.sleep(2)
+      time.sleep(5)
 
       key.make_public()
 
@@ -88,7 +88,7 @@ def UploadFile():
 
       url = key.generate_url(expires_in=0, query_auth=False)
 
-      
+
       return url
 
 
