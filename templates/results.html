@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>True Price - on TrueFloor</title>
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<script src="../static/js/jquery-1.11.2.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script></head>
+<link rel="stylesheet" href="../static/css/search.css">
+
+<body style="background-color:#e3ddd1;">
+
+
+
+    <div class="container">
+<h1>Results</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group" id="adv-search">
+                    <input type="text" id="tp" class="form-control" placeholder="Enter True Price " />
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            
+                            <button type="button" onclick="search();" class="btn btn-primary" style="border-color:#f68121;background-color:#f68121;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+
+        <script type="text/javascript">
+
+$(document).ready(function(){
+    $("a").click(function(){
+        //console.log($(this).attr("id"));
+        var id = $(this).attr("id");
+        window.location.href = "/propertyDetails?id=" + id;
+        //alert("The paragraph was clicked.");
+    });
+});
+
+        </script>
+
+<div class="container">
+<div class="row ">
+{% for each in list_p %}
+         <div class="col-md-4">
+
+         <div class="menu-category list-group ">
+        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;"></div>
+        <a href="#" id='{{ each }}' class="menu-item list-group-item">{{ each }}<span class="badge" style="background-color:#8176F2;">{{list_p[each]|length}} Available</span> </a>
+       
+    </div>
+ </div>
+      
+ {% endfor %}
+
+ </div>
+<hr/>
+<div class="row">
+{% for each in list_l %}
+         <div class="col-md-4">
+
+         <div class="menu-category list-group">
+        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;"></div>
+        <a href="#" id='{{ each }}' class="menu-item list-group-item">{{ each }}<span class="badge" style="background-color:#8176F2;">{{list_l[each]|length}} Available</span> </a>
+       
+    </div>
+ </div>
+      
+ {% endfor %}
+ </div>
+    </div>
+
+
+
+
+<div class="container">
+
+
+    </div>
+<script type="text/javascript">
+    
+
+    function search() {
+
+  var query_amount = document.getElementById('tp').value;
+  
+          //alert("tiger");
+
+        window.location.href = '/trueSearchAPI?query_amount='+query_amount;
+
+    }
+</script>
+</body>
+</html>

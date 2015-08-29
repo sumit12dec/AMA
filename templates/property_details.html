@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>True Price - on TrueFloor</title>
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+<script src="../static/js/jquery-1.11.2.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script></head>
+<link rel="stylesheet" href="../static/css/search.css">
+
+<body style="background-color:#e3ddd1;">
+
+
+
+    <div class="container">
+<h1>Results</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group" id="adv-search">
+                    <input type="text" id="tp" class="form-control" placeholder="Enter True Price " />
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            
+                            <button type="button" onclick="search();" class="btn btn-primary" style="border-color:#f68121;background-color:#f68121;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+
+        <script type="text/javascript">
+
+$(document).ready(function(){
+    $("a").click(function(){
+        //console.log($(this).attr("id"));
+        var id = $(this).attr("id");
+        window.location.href = "/propertyDetails?id=" + id;
+        //alert("The paragraph was clicked.");
+    });
+});
+
+        </script>
+
+
+
+{% if list_p[filter_id] is defined %}
+   {% set list = list_p %}
+{% endif %}
+
+{% if list_l[filter_id] is defined %}
+   {% set list = list_l %}
+{% endif %}
+
+<div class="container">
+    <div class="row">
+            {% for each in list[filter_id] %}
+                <div class="col-md-4">
+                    <div class="menu-category list-group ">
+                        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;">{{ each['type'] }}
+
+                        <div style="float:right;">{{ each['area']}}</div>
+                        </div>
+
+                        
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Project Name    <span class="badge" style="background-color:#8176F2;">{{ each['builder'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Locality   <span class="badge" style="background-color:#8176F2;">{{ each['location'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Possesion Date   <span class="badge" style="background-color:#8176F2;">{{ each['possesion'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Type    <span class="badge" style="background-color:#8176F2;">{{ each['type'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Area   <span class="badge" style="background-color:#8176F2;">{{ each['area'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Price Square Feet   <span class="badge" style="background-color:#8176F2;">{{ each['pricesqft'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Intro Price  <span class="badge" style="background-color:#8176F2;">{{ each['intro_price'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Resv Car Park   <span class="badge" style="background-color:#8176F2;">{{ each['resv_car_park'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Total Parking   <span class="badge" style="background-color:#8176F2;">{{ each['total_parking'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Final Car Parking   <span class="badge" style="background-color:#8176F2;">{{ each['final_car_park'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Floor Rise PSF  <span class="badge" style="background-color:#8176F2;">{{ each['floor_rise_psf'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Floor Rise Total   <span class="badge" style="background-color:#8176F2;">{{ each['floor_rise_total'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Club House Fee   <span class="badge" style="background-color:#8176F2;">{{ each['club_house_fee'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+PLC   <span class="badge" style="background-color:#8176F2;">{{ each['plc'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Service Tax   <span class="badge" style="background-color:#8176F2;">{{ each['service_tax'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Maintenance   <span class="badge" style="background-color:#8176F2;">{{ each['maintenance'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Onetime Corpus    <span class="badge" style="background-color:#8176F2;">{{ each['onetime_corpus'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Campus Corpus Fund   <span class="badge" style="background-color:#8176F2;">{{ each['campus_corpus_fund'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Add expenses    <span class="badge" style="background-color:#8176F2;">{{ each['add_expenses'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Total   <span class="badge" style="background-color:#8176F2;">{{ each['total'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+ Vat construct value   <span class="badge" style="background-color:#8176F2;">{{ each['vat_construct_value'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Service tax construct value    <span class="badge" style="background-color:#8176F2;">{{ each['service_tax_construct_value'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Stamp Duty    <span class="badge" style="background-color:#8176F2;">{{ each['stamp_duty'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Tax Total   <span class="badge" style="background-color:#8176F2;">{{ each['tax_total'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Grand Total   <span class="badge" style="background-color:#8176F2;">{{ each['grand_total'] }}</span> 
+</p>
+
+<p id='onetime_corpus' class="menu-item list-group-item">
+Percent  <span class="badge" style="background-color:#8176F2;">{{ each['percent'] }}</span> 
+</p>
+
+
+
+
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+
+
+
+
+<div class="container">
+
+
+    </div>
+<script type="text/javascript">
+    
+
+    function search() {
+
+  var query_amount = document.getElementById('tp').value;
+  
+          //alert("tiger");
+
+        window.location.href = '/trueSearchAPI?query_amount='+query_amount;
+
+    }
+</script>
+
+
+</body>
+</html>

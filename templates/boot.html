@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>True Price - on TrueFloor</title>
+    <script src="../static/js/jquery-1.11.2.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<script src="../static/js/jquery-1.11.2.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script></head>
+<link rel="stylesheet" href="../static/css/search.css">
+
+<body style="background-color:#e3ddd1;">
+    <div class="container">
+    <h2>True Search | True Price</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group" id="adv-search">
+                    <input type="text" id="tp" class="form-control" placeholder="Enter True Price " />
+                    <div class="input-group-btn">
+                        <div class="btn-group" role="group">
+                            
+                            <button type="button" onclick="search();" class="btn btn-primary" style="border-color:#f68121;background-color:#f68121;"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+         <div class="row1">
+
+         <div class="menu-category list-group ">
+        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;">60-80 Lacs</div>
+        <a href="#" class="menu-item list-group-item">2 BHK<span class="badge" style="background-color:#8176F2;">1 Available</span></a>
+        <a href="#" class="menu-item list-group-item">3 BHK<span class="badge" style="background-color:#8176F2;">3 Available</span></a>
+       
+    </div>
+
+  <div class="menu-category list-group ">
+        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;">80-100 Lacs</div>
+        <a href="#" class="menu-item list-group-item">2 BHK<span class="badge" style="background-color:#8176F2;">1 Available</span></a>
+        <a href="#" class="menu-item list-group-item">3 BHK<span class="badge" style="background-color:#8176F2;">3 Available</span></a>
+       
+    </div>
+
+      <div class="menu-category list-group ">
+        <div class="menu-category-name list-group-item active" style="border-color:#f68121;background-color:#f68121;">Above 1 Crore</div>
+        <a href="#" class="menu-item list-group-item">2 BHK<span class="badge" style="background-color:#8176F2;">1 Available</span></a>
+        <a href="#" class="menu-item list-group-item">3 BHK<span class="badge" style="background-color:#8176F2;">3 Available</span></a>
+       
+    </div>
+
+ </div>
+    </div>
+
+<script type="text/javascript">
+    
+
+    function search() {
+
+  var query_amount = document.getElementById('tp').value;
+  
+          //alert("tiger");
+
+        window.location.href = '/trueSearchAPI?query_amount='+query_amount;
+
+    }
+</script>
+
+
+</body>
+</html>
