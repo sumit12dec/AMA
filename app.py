@@ -72,11 +72,12 @@ def UploadFile():
   aws_secret = '1Z0xrHllqEsi81gaoEdDQgCaRR8Li56o1cQ0sxKZ'
   seqhack = "seqhack2015"
   file = request.files['file']
+  print file
   if file :
       filename = secure_filename(file.filename)
       s3 = boto.connect_s3(aws_key, aws_secret)
-      bucket = s3.get_bucket(seqhack)
-      key = bucket.new_key(filename)
+      #bucket = s3.get_bucket(seqhack)
+      #key = bucket.new_key(filename)
       #key.set_contents_from_file(file, headers=None, replace=True, cb=None, num_cb=10, policy=None, md5=None)
 
       #time.sleep(5)
