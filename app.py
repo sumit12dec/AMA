@@ -65,33 +65,31 @@ def UploadFile():
   from boto.s3.key import Key
   import ntpath
   from werkzeug import secure_filename
-  import time, logging
+  import time
 
 
   aws_key = 'AKIAJ2ML5NXDHZS3WCEA'
   aws_secret = '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'
   seqhack = "seqhack2015"
   file = request.files['file']
-  logging.warning(file)
-
-  if file:
+  if file :
       filename = secure_filename(file.filename)
-      #s3 = boto.connect_s3(aws_key, aws_secret)
-      #bucket = s3.get_bucket(seqhack)
-      #key = bucket.new_key(filename)
-      #key.set_contents_from_file(file, headers=None, replace=True, cb=None, num_cb=10, policy=None, md5=None)
+      s3 = boto.connect_s3(aws_key, aws_secret)
+      bucket = s3.get_bucket(seqhack)
+      key = bucket.new_key(filename)
+      key.set_contents_from_file(file, headers=None, replace=True, cb=None, num_cb=10, policy=None, md5=None)
 
-      #time.sleep(5)
+      time.sleep(5)
 
-      #key.make_public()
+      key.make_public()
 
-      #time.sleep(2)
-
-
-      #url = key.generate_url(expires_in=0, query_auth=False)
+      time.sleep(2)
 
 
-  return str("hdflasdjflk")
+      url = key.generate_url(expires_in=0, query_auth=False)
+
+
+      return str(url)
 
 
 
