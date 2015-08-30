@@ -66,6 +66,7 @@ def VoiceToText():
   aresjs = json.loads(ares.text)
 
   print aresjs["_text"]
+  return str(aresjs["_text"])
 
 
 
