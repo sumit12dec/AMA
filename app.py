@@ -29,7 +29,17 @@ def connect_it():
 	return db
 """
 
-  
+@app.route("/wiki", methods=["GET","POST"])
+def wiki():
+  import wikipedia
+
+  query = request.args.get('query')
+  var = wikipedia.summary(query, sentences = 1)
+  var = var.encode('ascii','ignore')
+
+  return str(var)
+
+
 @app.route("/VoiceToText", methods=["GET","POST"])
 def VoiceToText():
   import sys
@@ -49,7 +59,7 @@ def VoiceToText():
   aresjs = json.loads(ares.text)
 
   print aresjs["_text"]
-  return str(aresjs["_text"])
+  return str(aresjs["_text"]).encode('ascii','ignore')
 
 
 

@@ -10,3 +10,4 @@ wsgiref==0.1.2
 MySQL-python==1.2.3
 Flask-Cache
 boto
+wikipedia
