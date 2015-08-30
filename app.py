@@ -31,13 +31,20 @@ def connect_it():
 
 @app.route("/wiki", methods=["GET","POST"])
 def wiki():
-  import wikipedia
+  import wikipedia,re
 
   query = request.args.get('query')
   var = wikipedia.summary(query, sentences = 1)
   var = var.encode('ascii','ignore')
 
-  return str(var)
+  # start = var.index('(')
+  # end = var.rindex(')')
+  # return str(var[:start-1]+var[end+1:])
+
+  k=re.sub(r'\([^)]*\)', '',var)
+  word1 = " ".join(re.findall("[a-zA-Z]+", k))
+
+  return str(word1)
 
 
 @app.route("/VoiceToText", methods=["GET","POST"])
@@ -59,7 +66,6 @@ def VoiceToText():
   aresjs = json.loads(ares.text)
 
   print aresjs["_text"]
-  return str(aresjs["_text"]).encode('ascii','ignore')
 
 
 
