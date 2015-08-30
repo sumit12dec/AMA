@@ -41,14 +41,17 @@ def wiki():
   import wikipedia,re
 
   query = request.args.get('query')
-  array = wikipedia.search(query)
-  if len(array) > 0:
-    var = wikipedia.summary(array[0], sentences = 1)
-    var = var.encode('ascii','ignore')
-    k = re.sub(r'\([^)]*\)', '',var)
-    word1 = " ".join(re.findall("[a-zA-Z]+", k))
-    return str(word1)
-  else:
+  try:
+    array = wikipedia.search(query)
+    if len(array) > 0:
+      var = wikipedia.summary(array[0], sentences = 1)
+      var = var.encode('ascii','ignore')
+      k = re.sub(r'\([^)]*\)', '',var)
+      word1 = " ".join(re.findall("[a-zA-Z]+", k))
+      return str(word1)
+    else:
+      return str('Sorry, we could not find any match.')
+  except:
     return str('Sorry, we could not find any match.')
 
 
