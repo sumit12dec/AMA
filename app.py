@@ -29,22 +29,27 @@ def connect_it():
 	return db
 """
 
+@app.route("/wol", methods=["GET","POST"])
+def wol():
+  import wolframalpha
+  query = request.args.get('query')
+  client = wolframalpha.Client('9L89KG-Y23X6THEA8')
+  res = client.query(query)
+
 @app.route("/wiki", methods=["GET","POST"])
 def wiki():
   import wikipedia,re
 
   query = request.args.get('query')
-  var = wikipedia.summary(query, sentences = 1)
-  var = var.encode('ascii','ignore')
-
-  # start = var.index('(')
-  # end = var.rindex(')')
-  # return str(var[:start-1]+var[end+1:])
-
-  k=re.sub(r'\([^)]*\)', '',var)
-  word1 = " ".join(re.findall("[a-zA-Z]+", k))
-
-  return str(word1)
+  array = wikipedia.search(query)
+  if len(array) > 0:
+    var = wikipedia.summary(array[0], sentences = 1)
+    var = var.encode('ascii','ignore')
+    k = re.sub(r'\([^)]*\)', '',var)
+    word1 = " ".join(re.findall("[a-zA-Z]+", k))
+    return str(word1)
+  else:
+    return str('Sorry, we could not find any match.')
 
 
 @app.route("/VoiceToText", methods=["GET","POST"])
@@ -104,16 +109,6 @@ def UploadFile():
 
 
       return str(url)
-
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == "__main__":
