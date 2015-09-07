@@ -55,6 +55,8 @@ def wiki():
     return str('Sorry, we could not find any match.')
 
 
+
+
 @app.route("/VoiceToText", methods=["GET","POST"])
 def VoiceToText():
   import sys
@@ -92,8 +94,8 @@ def UploadFile():
   import time
 
 
-  aws_key = 'AKIAJ2ML5NXDHZS3WCEA'
-  aws_secret = '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'
+  aws_key = ''
+  aws_secret = ''
   seqhack = "seqhack2015"
   file = request.files['file']
   if file :
