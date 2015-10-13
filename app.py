@@ -11,10 +11,10 @@ import time, os, json, base64, hmac, urllib
 from hashlib import sha1
 
 import time
-from flask.ext.cache import Cache
+#from flask.ext.cache import Cache
 app = Flask(__name__)
 # Check Configuring Flask-Cache section for more details
-cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+#cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 #cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 details = {}
 listings_based_on_price = {}
@@ -35,6 +35,11 @@ def wol():
   query = request.args.get('query')
   client = wolframalpha.Client('9L89KG-Y23X6THEA8')
   res = client.query(query)
+  result_text = ""
+  for each in res.pods:
+    result_text += each.text
+  print "+++++++", result_text
+  return str(result_text)
 
 @app.route("/wiki", methods=["GET","POST"])
 def wiki():
