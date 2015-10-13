@@ -22,7 +22,7 @@ listings_based_on_locality = {}
 # main index
 @app.route("/")
 def index():
-	return "seqhack api for voice to text"
+	return "Ask Me Anything"
 """
 def connect_it():
 	db = MySQLdb.connect("us-cdbr-iron-east-02.cleardb.net","be225b633c476c","4843cd70","heroku_e5b2294f4b320d3" )
